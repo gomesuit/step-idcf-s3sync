@@ -17,12 +17,15 @@ build:
             tar xzvf /tmp/s3cmd.tar.gz -C /tmp/
 
     - script:
-        name: prepare output
+        name: install s3cmd
         code: |
             cd /tmp/s3cmd-1.6.1/
             sudo python setup.py install
-            cp /tmp/s3cmd-1.6.1/build/scripts-2.7/s3cmd $WERCKER_ROOT/s3cmd
 
     - script:
-        name: version
+        name: output s3cmd
+        code: cp /tmp/s3cmd-1.6.1/build/scripts-2.7/s3cmd $WERCKER_ROOT/s3cmd
+
+    - script:
+        name: version check
         code: $WERCKER_ROOT/s3cmd --version
