@@ -19,7 +19,7 @@ build:
     - script:
         name: prepare output
         code: |
-            python /tmp/s3cmd-1.6.1/setup.py install
+            sudo python /tmp/s3cmd-1.6.1/setup.py install
             cp /bin/s3cmd $WERCKER_ROOT/s3cmd
 
     - script:
