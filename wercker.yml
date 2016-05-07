@@ -27,5 +27,9 @@ build:
         code: cp /tmp/s3cmd-1.6.1/build/scripts-2.7/s3cmd $WERCKER_ROOT/s3cmd
 
     - script:
+        name: setting s3cfg
+        code: cp s3cfg $HOME/.s3cfg
+
+    - script:
         name: version check
         code: $WERCKER_ROOT/s3cmd --version
