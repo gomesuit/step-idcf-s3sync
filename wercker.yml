@@ -21,7 +21,7 @@ build:
         code: |
             cd /tmp/s3cmd-1.6.1/
             sudo python setup.py install
-            cp /bin/s3cmd $WERCKER_ROOT/s3cmd
+            cp /tmp/s3cmd-1.6.1/build/scripts-2.7/s3cmd $WERCKER_ROOT/s3cmd
 
     - script:
         name: version
