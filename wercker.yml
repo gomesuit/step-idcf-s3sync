@@ -1,0 +1,26 @@
+box: wercker/default
+
+build:
+  steps:
+    - shellcheck:
+        files: run.sh
+
+    - script:
+        name: install python-dateutil
+        code: |
+            sudo pip install python-dateutil
+
+    - script:
+        name: download s3cmd
+        code: |
+            curl -L https://github.com/s3tools/s3cmd/archive/v1.6.1.tar.gz > /tmp/s3cmd.tar.gz
+            tar xzvf /tmp/s3cmd.tar.gz -C /tmp/
+
+    - script:
+        name: prepare output
+        code: |
+            cp /tmp/s3cmd-1.6.1/s3cmd $WERCKER_ROOT/s3cmd
+
+    - script:
+        name: version
+        code: $WERCKER_ROOT/s3cmd --version

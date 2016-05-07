@@ -1,0 +1,16 @@
+name: idcf-s3sync
+version: 0.0.1
+description: idcf-s3sync
+properties:
+  access-key:
+    type: string
+    required: true
+  secret-key:
+    type: string
+    required: true
+  host-base:
+    type: string
+    required: true
+  host-bucket:
+    type: string
+    required: true
