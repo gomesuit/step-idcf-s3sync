@@ -1,5 +1,5 @@
 name: idcf-s3sync
-version: 0.0.1
+version: 0.0.2
 description: idcf-s3sync
 properties:
   access-key:

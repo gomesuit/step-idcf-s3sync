@@ -9,22 +9,27 @@ build:
         name: install python-dateutil
         code: |
             sudo pip install python-dateutil
+            sudo pip install pyinstaller==3.0
 
     - script:
         name: download s3cmd
         code: |
             curl -L https://github.com/s3tools/s3cmd/archive/v1.6.1.tar.gz > /tmp/s3cmd.tar.gz
-            tar xzvf /tmp/s3cmd.tar.gz -C /tmp/
+            mkdir /tmp/s3cmd/
+            tar xzvf /tmp/s3cmd.tar.gz -C /tmp/s3cmd/
 
     - script:
         name: install s3cmd
         code: |
-            cd /tmp/s3cmd-1.6.1/
-            sudo python setup.py install
+            cd /tmp/s3cmd
+            pyinstaller -F --name=s3cmd /tmp/s3cmd/s3cmd-1.6.1/s3cmd
 
     - script:
         name: output s3cmd
-        code: cp /tmp/s3cmd-1.6.1/build/scripts-2.7/s3cmd $WERCKER_ROOT/s3cmd
+        code: |
+            mv /tmp/s3cmd/dist/s3cmd $WERCKER_ROOT/s3cmd
+            rm -rf $WERCKER_ROOT/.git
+            rm -f $WERCKER_ROOT/.gitignore
 
     - script:
         name: setting s3cfg
