@@ -14,3 +14,9 @@ properties:
   host-bucket:
     type: string
     required: true
+  bucket-url:
+    type: string
+    required: true
+  source-dir:
+    type: string
+    required: true
