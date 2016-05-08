@@ -33,7 +33,7 @@ build:
 
     - script:
         name: setting s3cfg
-        code: cp s3cfg $HOME/.s3cfg
+        code: cp s3cfg $WERCKER_ROOT/s3cfg
 
     - script:
         name: version check
