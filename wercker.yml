@@ -1,4 +1,4 @@
-box: maven:3-jdk-7
+box: wercker/default
 
 build:
   steps:
